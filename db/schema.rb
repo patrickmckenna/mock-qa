@@ -11,6 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20151012231406) do
+
+  create_table "pull_requests", force: :cascade do |t|
+    t.string   "owner"
+    t.string   "repo"
+    t.string   "sha"
+    t.string   "status"
+    t.string   "target_url"
+    t.string   "description"
+    t.string   "context"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
 end
