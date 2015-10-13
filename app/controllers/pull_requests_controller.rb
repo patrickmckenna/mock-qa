@@ -6,4 +6,11 @@ class PullRequestsController < ApplicationController
                                     status: "pending"
   end
 
+  def create
+    @pull_request = PullRequest.new
+    if @pull_request.save
+    else
+    end
+  end
+
 end
