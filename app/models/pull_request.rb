@@ -1,5 +1,3 @@
 class PullRequest < ActiveRecord::Base
-  validates :owner, presence: true
-  validates :repo, presence: true
-  validates :sha, presence: true, length: { is: 40 }
+  validates :statuses_url, presence: true
 end

@@ -7,7 +7,7 @@ class PullRequestsController < ApplicationController
   end
 
   def create
-    @pull_request = PullRequest.new
+    @pull_request = PullRequest.new stat params[:pull_request][:statuses_url]
     if @pull_request.save
     else
     end
