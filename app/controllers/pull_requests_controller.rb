@@ -1,7 +1,7 @@
 class PullRequestsController < ApplicationController
 
   def show
-    @pull_request = PullRequest.new statuses_url: "https://api.github.com/repos/patrickmckenna/scratch/stauses/993e3925117198c374182df6aea707e97e9692ab"
+    @pull_requests = PullRequest.all
   end
 
   def create
