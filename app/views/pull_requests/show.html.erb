@@ -1,6 +1,9 @@
 <h1>Open Pull Requests</h1>
 <ul>
 <% @pull_requests.each do |pr| %>
+  <li>----</li>
+  <li><%= pr.url %></li>
   <li><%= pr.statuses_url %></li>
+  <li>----</li>
 <% end %>
 </ul>
