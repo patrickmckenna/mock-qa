@@ -10,8 +10,7 @@ class PullRequestsController < ApplicationController
 
   def create_update
     url = params[:pull_request][:url]
-    # repo = params[:pull_request][:repo][:full_name]
-    repo = 'patrickmckenna/scratch'
+    repo = params['pull_request']['head']['repo']['full_name']
     sha = params[:pull_request][:head][:sha]
 
     pull_request_action = request.request_parameters[:action]
