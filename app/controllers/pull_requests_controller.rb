@@ -2,15 +2,15 @@ require 'octokit'
 
 class PullRequestsController < ApplicationController
 
-  skip_before_filter :verify_authenticity_token, :only => [:create_update]
+  skip_before_filter :verify_authenticity_token, :only => [:process_hook]
 
   def index
     @pull_requests = PullRequest.all
   end
 
-  def create_update
+  def process_hook
     url = params[:pull_request][:url]
-    repo = params['pull_request']['head']['repo']['full_name']
+    repo = params[:pull_request][:head][:repo][:full_name]
     sha = params[:pull_request][:head][:sha]
 
     pull_request_action = request.request_parameters[:action]
