@@ -1,9 +1,33 @@
-<h1>Open Pull Requests</h1>
-<ul>
-<% @pull_requests.each do |pr| %>
-  <li>----</li>
-  <li><%= pr.url %></li>
-  <li><%= pr.sha %></li>
-  <li>----</li>
-<% end %>
-</ul>
+<h1 class="sub-header">Open Pull Requests</h1>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>PR</th>
+        <th>Set State</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+      <% @pull_requests.each do |pr| %>
+        <td><%= link_to pr.url %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              State
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li>pending</li>
+              <li>success</li>
+              <li>error</li>
+              <li>failure</li>
+            </ul>
+          </div>
+        </td>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>
