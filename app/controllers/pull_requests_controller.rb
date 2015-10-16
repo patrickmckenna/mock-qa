@@ -24,7 +24,7 @@ class PullRequestsController < ApplicationController
     end
 
     set_pending_state repo, sha #unless pull_request_action == 'closed'?
-    redirect_to root_url
+    head :ok
   end
 
   private
