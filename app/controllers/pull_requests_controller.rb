@@ -9,7 +9,7 @@ class PullRequestsController < ApplicationController
   end
 
   def process_hook
-    url = params[:pull_request][:url]
+    url = params[:pull_request][:html_url]
     repo = params[:pull_request][:head][:repo][:full_name]
     sha = params[:pull_request][:head][:sha]
 
