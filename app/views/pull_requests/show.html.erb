@@ -3,7 +3,7 @@
 <% @pull_requests.each do |pr| %>
   <li>----</li>
   <li><%= pr.url %></li>
-  <li><%= pr.statuses_url %></li>
+  <li><%= pr.sha %></li>
   <li>----</li>
 <% end %>
 </ul>
