@@ -9,8 +9,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
       <% @pull_requests.each do |pr| %>
+      <tr>
         <td><%= link_to pr.url %></td>
         <td>
           <div class="dropdown">
@@ -26,8 +26,8 @@
             </ul>
           </div>
         </td>
-      <% end %>
       </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
