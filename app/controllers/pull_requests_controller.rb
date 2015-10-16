@@ -4,7 +4,7 @@ class PullRequestsController < ApplicationController
 
   skip_before_filter :verify_authenticity_token, :only => [:create_update]
 
-  def show
+  def index
     @pull_requests = PullRequest.all
   end
 
