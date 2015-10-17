@@ -23,18 +23,18 @@ class PullRequestsController < ApplicationController
       PullRequest.find_by(url: url).destroy
     end
 
-    set_state repo, sha, 'pending' #unless pull_request_action == 'closed'?
+    set_status repo, sha, 'pending' #unless pull_request_action == 'closed'?
     head :ok
   end
 
   private
 
-  def set_state repo, sha, state
-    sample_status = { target_url: 'https://merge-manager.herokuapp.com/pull-requests',
-                      description: 'an example description',
-                      context: 'merge-manager' }
+  def set_status repo, sha, state
+    status_details = { target_url: 'https://merge-manager.herokuapp.com/pull-requests',
+                       description: 'an example description',
+                       context: 'merge-manager' }
     client = Octokit::Client.new access_token: ENV['GITHUB_ACCESS_TOKEN']
-    client.create_status repo, sha, state, sample_status
+    client.create_status repo, sha, state, status_details
   end
 
 end
