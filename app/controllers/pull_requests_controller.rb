@@ -27,6 +27,13 @@ class PullRequestsController < ApplicationController
     head :ok
   end
 
+  def set_state
+    pull_request = PullRequest.find_by url: params[:pr][:url]
+
+    post_status pull_request.url, pull_request.sha, params[:pr][:state]
+    render 'index'
+  end
+
   private
 
   def post_status repo, sha, state
