@@ -23,13 +23,13 @@ class PullRequestsController < ApplicationController
       PullRequest.find_by(url: url).destroy
     end
 
-    set_status repo, sha, 'pending' #unless pull_request_action == 'closed'?
+    post_status repo, sha, 'pending' #unless pull_request_action == 'closed'?
     head :ok
   end
 
   private
 
-  def set_status repo, sha, state
+  def post_status repo, sha, state
     status_details = { target_url: 'https://merge-manager.herokuapp.com/pull-requests',
                        description: 'an example description',
                        context: 'merge-manager' }
