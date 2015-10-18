@@ -14,7 +14,11 @@
         <td><%= link_to pr.url %></td>
         <td>
           <div>
-            <%= form_for %>
+            <%= form_for :pull_request_status do |prs| %>
+              <%= prs.text_field :state %>
+              <%= hidden_field_tag 'pull_request_repo', pr.repo %>
+              <%= hidden_field_tag 'pull_request_sha', pr.sha %>
+              <%= prs.submit %>
             <% end %>
           </div>
         </td>
