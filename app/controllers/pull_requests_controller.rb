@@ -20,7 +20,7 @@ class PullRequestsController < ApplicationController
     when 'synchronize'
       PullRequest.find_by(url: url).update(sha: sha)
     when 'closed'
-      PullRequest.find_by(url: url).destroy
+      delete url
     end
 
     post_status repo, sha, 'pending' #unless pull_request_action == 'closed'?
@@ -40,6 +40,11 @@ class PullRequestsController < ApplicationController
                        context: 'merge-manager' }
     client = Octokit::Client.new access_token: ENV['GITHUB_ACCESS_TOKEN']
     client.create_status repo, sha, state, status_details
+  end
+
+  def delete pr_url
+    pull_request = PullRequest.find_by url: pr_url
+    pull_request.destroy unless pull_request.nil?
   end
 
 end
