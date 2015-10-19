@@ -15,10 +15,11 @@
         <td>
           <div>
             <%= form_for :pull_request_status do |prs| %>
-              <%= prs.text_field :state %>
+              <%= select_tag :state, options_for_select(%w[success pending failure error]),
+                              class: 'btn btn-default dropdown-toggle', include_blank: true,
+                              onchange: 'this.form.submit()' %>
               <%= hidden_field_tag 'pull_request_repo', pr.repo %>
               <%= hidden_field_tag 'pull_request_sha', pr.sha %>
-              <%= prs.submit %>
             <% end %>
           </div>
         </td>

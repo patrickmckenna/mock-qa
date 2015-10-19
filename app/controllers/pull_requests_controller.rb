@@ -28,7 +28,7 @@ class PullRequestsController < ApplicationController
   end
 
   def set_state
-    post_status params[:pull_request_repo], params[:pull_request_sha], params[:pull_request_status][:state]
+    post_status params[:pull_request_repo], params[:pull_request_sha], params[:state]
     redirect_to pull_requests_url
   end
 
