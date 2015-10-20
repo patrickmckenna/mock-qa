@@ -14,7 +14,7 @@
         <td><%= link_to pr.url %></td>
         <td>
           <div>
-            <%= form_for :pull_request_status do |prs| %>
+            <%= form_tag do %>
               <%= select_tag :state, options_for_select(%w[success pending failure error]),
                               class: 'btn btn-default dropdown-toggle', include_blank: true,
                               onchange: 'this.form.submit()' %>
