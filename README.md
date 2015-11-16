@@ -9,4 +9,4 @@ Set a PR status using this simple web UI. This app:
 
 
 ### Setup
-Add a webhook that fires at `https://merge-manager.herokuapp.com/hooks` on all Pull Request Events.
+Add a webhook that fires at `https://mock-qa.herokuapp.com/hooks` on all Pull Request Events.
