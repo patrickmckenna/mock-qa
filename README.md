@@ -1,28 +1,11 @@
-== README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+:warning: WIP/POC :warning:
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+### Use
+Set a PR status using this simple web UI. This app:
+1. Automatically sets a "pending" status for all new and re-opened PRs.
+2. Lets you set the status of a PR to one of the [4 accepted states](https://developer.github.com/v3/repos/statuses/#parameters): `success`, `pending`, `failure`, `error`.
+
+
+### Setup
+Add a webhook that fires at `https://merge-manager.herokuapp.com/hooks` on all Pull Request Events.
